@@ -43,12 +43,8 @@ pipeline {
 
         stage("Build and Code Analysis"){
             steps {
-                def scannerhome = tool 'sonar-scanner'
-                withSonarQubeEnv('SonarQubeServer'){
-                    withMaven(maven:'Maven 3.6.3'){
-                        sh 'mvn clean package sonar:sonar'
-                    }
-                }
+                sh "mvn -version"
+                sh "mvn clean compile"
             }
 
         }
